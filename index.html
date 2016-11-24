@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<head>
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+  <script src="./main.js" charset="utf-8"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+  <h1 class="title">Dashboard</h1>
+  <div class="day-number-holder">
+    <button class="direction-button" onclick="decrementDay()"><</button>
+    <h2 id="day-number">Day 1</h2>
+    <button class="direction-button" onclick="incrementDay()">></button>
+  </div>
+  <div class="dashboard">
+    <div class="dashboard-charts"></div>
+    <div class="dashboard-circle"></div>
+  </div>
+  <div class="dynamic-graph-holder">
+    <div class="dynamic-graph"></div>
+    <div class="dynamic-graph-selectors">
+      <h3>X Axis</h3>
+      <select name="xAxisSelector" id="x-axis-selector" onchange="updateDynamicGraph()">
+        <option value="day" selected>Day</option>
+        <option value="calsIn">Calories Consumed</option>
+        <option value="calsOut">Calories Expended</option>
+        <option value="intake">Caloric Intake</option>
+        <option value="weight">Weight</option>
+        <option value="a">A</option>
+        <option value="b">B</option>
+        <option value="c">C</option>
+      </select>
+      <h3>Y Axis</h3>
+      <select name="yAxisSelector" id="y-axis-selector" onchange="updateDynamicGraph()">
+        <option value="day">Day</option>
+        <option value="calsIn">Calories Consumed</option>
+        <option value="calsOut">Calories Expended</option>
+        <option value="intake" selected>Caloric Intake</option>
+        <option value="weight">Weight</option>
+        <option value="a">A</option>
+        <option value="b">B</option>
+        <option value="c">C</option>
+      </select>
+    </div>
+  </div>
+
+  <script>
+    createDashboard(1, 150)
+    createGraph('day', 'intake')
+  </script>
+</body>
